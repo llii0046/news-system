@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Table, Button, Modal } from 'antd'
 import axios from 'axios'; 
-import { DeleteOutlined, BarsOutlined,ExclamationCircleOutlined } from "@ant-design/icons";
+import { BarsOutlined } from "@ant-design/icons";
+import DeleteButton from './components/DeleteButton';
 const { confirm } = Modal
 export default function RoleList() {
   const [dataSource, setDataSource] = useState([]);
@@ -28,27 +29,13 @@ export default function RoleList() {
       render: (item) => {
         return (
           <div>
-            <Button danger shape="circle" icon={<DeleteOutlined />} 
-            onClick={() => showConfirm(item)}/>
+            <DeleteButton item={item} deleteMethod={deleteRole}/>
             <Button type="primary" shape="circle" icon={<BarsOutlined />} />
           </div>
         )
       }
     }
   ]
-
-  const showConfirm = (item) => {
-    confirm({
-      title: 'Are you sure to delete this role?',
-      icon: <ExclamationCircleOutlined />,
-      // content: 'Some descriptions',
-      onOk() {
-        deleteRole(item);
-      },
-      onCancel() {
-      },
-    });
-  };
 
   const deleteRole = (item) => {
         setDataSource(dataSource.filter(data => data.id !== item.id))

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Table, Tag, Button, Modal, Popover, Switch } from 'antd'
+import { Table, Tag, Button, Popover, Switch } from 'antd'
 import axios from 'axios';
-import { EditOutlined, DeleteOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
-const { confirm } = Modal
+import { EditOutlined} from "@ant-design/icons";
+import DeleteButton from './components/DeleteButton';
 
 export default function RightList() {
   const [dataSource, setDataSource] = useState([]);
@@ -46,26 +46,12 @@ export default function RightList() {
           <Popover content={content(item.pagepermisson, item)} title="Page configuration item" trigger={hasPermission ? "" : "click"} >
             <Button type="primary" shape="circle" icon={<EditOutlined />} disabled={hasPermission} />
           </Popover>
-          <Button type="danger" shape="circle" icon={<DeleteOutlined />}
-            onClick={() => showConfirm(item)} />
+          <DeleteButton item={item} deleteMethod={deletePermission}/>
         </div>
         )
       }
     }
   ]
-
-  const showConfirm = (item) => {
-    confirm({
-      title: 'Are you sure to delete this permission?',
-      icon: <ExclamationCircleOutlined />,
-      // content: 'Some descriptions',
-      onOk() {
-        deletePermission(item);
-      },
-      onCancel() {
-      },
-    });
-  };
 
   const content = (isChecked,item) => {
     return (
