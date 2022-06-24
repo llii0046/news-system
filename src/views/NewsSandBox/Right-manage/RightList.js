@@ -30,7 +30,6 @@ export default function RightList() {
     {
       title: 'Permission name',
       dataIndex: 'title',
-
     },
     {
       title: 'Permission path',
@@ -90,9 +89,7 @@ export default function RightList() {
       })
     }
   };
-
-
-
+  
   const deletePermission = (item) => {
     if (item.grade === 1) {
       setDataSource(dataSource.filter(data => data.id !== item.id))

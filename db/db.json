@@ -85,7 +85,7 @@
   "roles": [
     {
       "id": 1,
-      "roleName": "超级管理员",
+      "roleName": "Super admin",
       "roleType": 1,
       "rights": [
         "/user-manage/add",
@@ -119,7 +119,7 @@
     },
     {
       "id": 2,
-      "roleName": "区域管理员",
+      "roleName": "Regional admin",
       "roleType": 2,
       "rights": [
         "/home",
@@ -146,7 +146,7 @@
     },
     {
       "id": 3,
-      "roleName": "区域编辑",
+      "roleName": "Regional editor",
       "roleType": 3,
       "rights": [
         "/home",
