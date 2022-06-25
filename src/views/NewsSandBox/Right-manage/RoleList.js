@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Button, Modal } from 'antd'
+import { Table } from 'antd'
 import axios from 'axios'; 
-import { BarsOutlined } from "@ant-design/icons";
 import DeleteButton from './components/DeleteButton';
-const { confirm } = Modal
+import PopUpMenu from './components/PopUpMenu';
+
 export default function RoleList() {
+  const [treeData, setTreeData] = useState([]);
+  useEffect(() => {
+      axios.get("http://localhost:5000/rights?_embed=children").then(res => {
+        setTreeData(res.data)
+      })
+    }, [])
   const [dataSource, setDataSource] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:5000/roles").then(res => {
       setDataSource(res.data)
     })
   }, [])
+
 
   const columns = [
     {
@@ -29,8 +36,8 @@ export default function RoleList() {
       render: (item) => {
         return (
           <div>
-            <DeleteButton item={item} deleteMethod={deleteRole}/>
-            <Button type="primary" shape="circle" icon={<BarsOutlined />} />
+            <DeleteButton text={"role"} item={item} deleteMethod={deleteRole}/>
+            <PopUpMenu treeData={treeData} item={item} dataSource={dataSource}/>
           </div>
         )
       }

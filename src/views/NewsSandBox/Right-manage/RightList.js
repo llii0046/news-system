@@ -46,7 +46,7 @@ export default function RightList() {
           <Popover content={content(item.pagepermisson, item)} title="Page configuration item" trigger={hasPermission ? "" : "click"} >
             <Button type="primary" shape="circle" icon={<EditOutlined />} disabled={hasPermission} />
           </Popover>
-          <DeleteButton item={item} deleteMethod={deletePermission}/>
+          <DeleteButton text={"permission"} item={item} deleteMethod={deletePermission}/>
         </div>
         )
       }

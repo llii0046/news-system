@@ -110,9 +110,9 @@
         "/audit-manage/audit",
         "/audit-manage/list",
         "/publish-manage",
-        "/publish-manage/unpublished",
+        "/publish-manage/to-be-published",
         "/publish-manage/published",
-        "/publish-manage/sunset",
+        "/publish-manage/withdrew",
         "/user-manage",
         "/home"
       ]
@@ -139,9 +139,9 @@
         "/audit-manage/audit",
         "/audit-manage/list",
         "/publish-manage",
-        "/publish-manage/unpublished",
+        "/publish-manage/to-be-published",
         "/publish-manage/published",
-        "/publish-manage/sunset"
+        "/publish-manage/withdrew"
       ]
     },
     {
@@ -159,30 +159,30 @@
         "/audit-manage",
         "/audit-manage/list",
         "/publish-manage",
-        "/publish-manage/unpublished",
+        "/publish-manage/to-be-published",
         "/publish-manage/published",
-        "/publish-manage/sunset"
+        "/publish-manage/withdrew"
       ]
     }
   ],
   "children": [
     {
       "id": 3,
-      "title": "添加用户",
+      "title": "Add user",
       "rightId": 2,
       "key": "/user-manage/add",
       "grade": 2
     },
     {
       "id": 4,
-      "title": "删除用户",
+      "title": "Delete user",
       "rightId": 2,
       "key": "/user-manage/delete",
       "grade": 2
     },
     {
       "id": 5,
-      "title": "修改用户",
+      "title": "Update user",
       "rightId": 2,
       "key": "/user-manage/update",
       "grade": 2
@@ -213,35 +213,35 @@
     },
     {
       "id": 10,
-      "title": "修改角色",
+      "title": "Update role",
       "rightId": 7,
       "key": "/right-manage/role/update",
       "grade": 2
     },
     {
       "id": 11,
-      "title": "删除角色",
+      "title": "Delete role",
       "rightId": 7,
       "key": "/right-manage/role/delete",
       "grade": 2
     },
     {
       "id": 12,
-      "title": "修改权限",
+      "title": "Update permission",
       "rightId": 7,
       "key": "/right-manage/right/update",
       "grade": 2
     },
     {
       "id": 13,
-      "title": "删除权限",
+      "title": "Delete permission",
       "rightId": 7,
       "key": "/right-manage/right/delete",
       "grade": 2
     },
     {
       "id": 15,
-      "title": "新闻列表",
+      "title": "News list",
       "rightId": 14,
       "key": "/news-manage/list",
       "grade": 2
@@ -256,7 +256,7 @@
     },
     {
       "id": 17,
-      "title": "新闻更新",
+      "title": "Update news",
       "rightId": 14,
       "key": "/news-manage/update/:id",
       "grade": 2,
@@ -264,7 +264,7 @@
     },
     {
       "id": 18,
-      "title": "新闻预览",
+      "title": "Preview news",
       "rightId": 14,
       "key": "/news-manage/preview/:id",
       "grade": 2,
