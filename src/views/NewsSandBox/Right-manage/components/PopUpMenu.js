@@ -3,38 +3,36 @@ import { BarsOutlined } from "@ant-design/icons";
 import { Modal, Button, Tree } from 'antd';
 
 
-export default function PopUpMenu({treeData,item, dataSource}) {
+export default function PopUpMenu({ treeData, item, updateMethod }) {
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [currentRights, setCurrentRights] = useState();
+    const [currentRights, setCurrentRights] = useState([]);
+    const [currentId, setcurrentId] = useState(0)
 
     const handleOk = () => {
-        setIsModalVisible(false);
-    };
+        setIsModalVisible(false)
+        updateMethod(currentId,currentRights)
+    }
 
     const handleCancel = () => {
         setIsModalVisible(false);
     };
 
-
-    const onSelect = (selectedKeys, info) => {
-        console.log('selected', selectedKeys, info);
-      };
-    
-      const onCheck = (checkedKeys, info) => {
-        console.log('onCheck', checkedKeys, info);
-      };
-
+    const onCheck = (checkedKeys) => {
+        setCurrentRights(checkedKeys)
+    };
 
     return (
         <>
-            <Button type="primary" shape="circle" icon={<BarsOutlined />} onClick={()=>{
+            <Button type="primary" shape="circle" icon={<BarsOutlined />} onClick={() => {
                 setIsModalVisible(true)
-                setCurrentRights(item.rights)}} />
+                setCurrentRights(item.rights)
+                setcurrentId(item.id)
+            }} />
             <Modal title="Permission assignment" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <Tree
                     checkable
-                    defaultCheckedKeys={currentRights}
-                    onSelect={onSelect}
+                    checkStrictly={true}
+                    checkedKeys={currentRights}
                     onCheck={onCheck}
                     treeData={treeData}
                 />

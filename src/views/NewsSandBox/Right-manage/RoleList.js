@@ -37,7 +37,7 @@ export default function RoleList() {
         return (
           <div>
             <DeleteButton text={"role"} item={item} deleteMethod={deleteRole}/>
-            <PopUpMenu treeData={treeData} item={item} dataSource={dataSource}/>
+            <PopUpMenu treeData={treeData} item={item} updateMethod={updatePermission}/>
           </div>
         )
       }
@@ -47,6 +47,22 @@ export default function RoleList() {
   const deleteRole = (item) => {
         setDataSource(dataSource.filter(data => data.id !== item.id))
         //axios.delete(`http://localhost:5000/roles/${item.id}`)
+  }
+
+  const updatePermission = (currentId,currentRights) => {
+    setDataSource(dataSource.map(item=>{
+      if(item.id===currentId){
+          return {
+              ...item,
+              rights:currentRights
+          }
+      }
+      return item
+  }))
+  axios.patch(`http://localhost:5000/roles/${currentId}`,{
+      rights:currentRights
+  })
+
   }
 
   return (
