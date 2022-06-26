@@ -7,8 +7,8 @@ import Particles from "react-tsparticles";
 import axios from 'axios'
 
 export default function Login(props) {
-  const success = () => {
-    message.success('Welcome to global news release and management system!');
+  const success = (username) => {
+    message.success(`Welcome to Global news system! ${username}`);
   };
   
   const error = () => {
@@ -22,9 +22,9 @@ export default function Login(props) {
       if(res.data.length===0){
         error()
       }else{
-        localStorage.setItem("token",res.data[0])
+        localStorage.setItem("token",JSON.stringify(res.data[0]))
         props.history.push("/")
-        success()
+        success(res.data[0].username)
       }
     })
   };
