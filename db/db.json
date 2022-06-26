@@ -10,25 +10,25 @@
       "roleId": 1
     },
     {
-      "username": "铁锤",
+      "username": "james",
       "password": "123",
       "roleState": true,
       "default": false,
-      "region": "非洲",
+      "region": "Africa",
       "roleId": 2,
       "id": 2
     },
     {
-      "username": "钢蛋",
+      "username": "curry",
       "password": "123",
       "roleState": true,
       "default": false,
-      "region": "南极洲",
+      "region": "Antarctica",
       "roleId": 2,
       "id": 3
     },
     {
-      "username": "诸葛山珍",
+      "username": "luxing",
       "password": "123",
       "roleState": true,
       "default": false,
@@ -37,45 +37,45 @@
       "id": 4
     },
     {
-      "username": "西门吹灯",
+      "username": "meijun",
       "password": "123",
       "roleState": true,
       "default": false,
-      "region": "南极洲",
+      "region": "Antarctica",
       "roleId": 3,
       "id": 5
     },
     {
-      "username": "轩辕翠花",
+      "username": "kevin",
       "password": "123",
       "roleState": true,
       "default": false,
-      "region": "南极洲",
+      "region": "Antarctica",
       "roleId": 3,
       "id": 6
     },
     {
-      "username": "司马海味",
+      "username": "jay",
       "password": "123",
       "roleState": true,
       "default": false,
-      "region": "亚洲",
+      "region": "Asia",
       "roleId": 3,
       "id": 7
     },
     {
-      "username": "咕噜墩子",
+      "username": "steven",
       "password": "123",
       "roleState": true,
       "default": false,
-      "region": "亚洲",
+      "region": "Asia",
       "roleId": 3,
       "id": 8
     },
     {
       "username": "aaabbb",
       "password": "123",
-      "region": "非洲",
+      "region": "Africa",
       "roleId": 3,
       "roleState": true,
       "default": false,

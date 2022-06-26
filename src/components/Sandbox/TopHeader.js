@@ -44,7 +44,7 @@ function TopHeader(props) {
         collapsed ? <MenuUnfoldOutlined onClick={changeCollapsed} /> : <MenuFoldOutlined onClick={changeCollapsed} />
       }
       <div style={{ float: "right" }}>
-        <span>welcome! {username}</span>
+        <span>welcome back! <span style={{color:"#1890ff"}}>{username}</span></span>
         <Dropdown overlay={menu}>
           <span style={{ paddingLeft: "10px" }}><Avatar size={48} icon={<UserOutlined />} /></span>
         </Dropdown>
