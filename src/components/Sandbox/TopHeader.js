@@ -12,9 +12,9 @@ function TopHeader(props) {
         {
           key: '1',
           label: (
-            <a>
+            <div>
               Super admin
-            </a>
+            </div>
           ),
         },
         {

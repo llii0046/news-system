@@ -1,12 +1,32 @@
 import React from 'react'
 import "antd/dist/antd.css";
 import "./Login.css";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Checkbox, Form, Input, message } from "antd";
 import { UserOutlined, LockOutlined, GlobalOutlined } from "@ant-design/icons";
+import Particles from "react-tsparticles";
+import axios from 'axios'
 
-export default function Login() {
+export default function Login(props) {
+  const success = () => {
+    message.success('Welcome to global news release and management system!');
+  };
+  
+  const error = () => {
+    message.error('Username or password does not match');
+  };
+
   const onFinish = (values) => {
-    console.log("Success:", values);
+    //console.log(values);
+    axios.get(`http://localhost:5000/users?roleState=${true}&username=${values.username}&password=${values.password}&_expand=role`).then
+    (res=>{
+      if(res.data.length===0){
+        error()
+      }else{
+        localStorage.setItem("token",res.data[0])
+        props.history.push("/")
+        success()
+      }
+    })
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -14,7 +34,8 @@ export default function Login() {
   };
 
   return (
-    <div style={{ background: 'rgb(35,39,65)', height: '100%' }}>
+    <div style={{ background: 'rgb(35,39,65)', height: '100%', overflow:'hidden'}}>
+      <Particles height={document.documentElement.clientHeight}/>
       <div className="formContainer">
         <div className="loginTitle">
           <GlobalOutlined /> Global news release and management system
