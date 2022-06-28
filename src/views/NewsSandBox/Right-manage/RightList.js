@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Table, Tag, Button, Popover, Switch } from 'antd'
 import axios from 'axios';
 import { EditOutlined} from "@ant-design/icons";
-import DeleteButton from './components/DeleteButton';
+import DeleteButton from '../components/DeleteButton';
 
 export default function RightList() {
   const [dataSource, setDataSource] = useState([]);

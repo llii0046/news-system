@@ -63,5 +63,4 @@ export default function UserList() {
       </div>
     </div>
   )
-
 }
