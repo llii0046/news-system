@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Table } from 'antd'
 import axios from 'axios'; 
-import DeleteButton from './components/DeleteButton';
-import PopUpMenu from './components/PopUpMenu';
+import DeleteButton from '../components/DeleteButton';
+import PopUpMenu from '../components/PopUpMenu';
 
 export default function RoleList() {
   const [treeData, setTreeData] = useState([]);
@@ -46,7 +46,7 @@ export default function RoleList() {
 
   const deleteRole = (item) => {
         setDataSource(dataSource.filter(data => data.id !== item.id))
-        //axios.delete(`http://localhost:5000/roles/${item.id}`)
+        axios.delete(`http://localhost:5000/roles/${item.id}`)
   }
 
   const updatePermission = (currentId,currentRights) => {
